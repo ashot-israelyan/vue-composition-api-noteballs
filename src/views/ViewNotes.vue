@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import Note from '@/components/Notes/Note.vue'
 import AddEditNote from '@/components/Notes/AddEditNote.vue'
 import { useStoreNotes } from '@/store/storeNotes'
@@ -48,5 +48,9 @@ const addNote = () => {
 }
 
 useWatchCharacters(newNote);
+
+onMounted(() => {
+  storeNotes.getNotes();
+})
 
 </script>
